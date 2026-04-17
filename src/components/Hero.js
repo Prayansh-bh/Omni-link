@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { services } from '@/data/services';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function Hero() {
   const [activeChip, setActiveChip] = useState(0);
@@ -20,11 +21,11 @@ export default function Hero() {
           <h1>Smart IoT Infrastructure. <em>Seamless</em> Connectivity Solutions.</h1>
           <p className="hero-sub">From advanced CCTV surveillance to sustainable solar energy, smart automation to enterprise networking — OmniLink delivers end-to-end IT infrastructure solutions in India.</p>
           <div className="hero-actions">
-            <button className="btn-primary">
+            <Link href="/#services" className="btn-primary">
               <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
               Explore Services
-            </button>
-            <button className="btn-ghost">View Portfolio</button>
+            </Link>
+            <Link href="/projects" className="btn-ghost" style={{textDecoration:'none', color:'inherit'}}>View Portfolio</Link>
           </div>
           <div className="hero-stats">
             <div><div className="stat-num">500+</div><div className="stat-label">Projects Delivered</div></div>
