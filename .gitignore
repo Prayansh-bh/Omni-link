@@ -1,0 +1,11 @@
+node_modules/
+.next/
+out/
+build/
+.env*
+.DS_Store
+*.log
+omnilink_site/node_modules/
+omnilink_site/.next/
+omnilink_site/out/
+omnilink_site/build/

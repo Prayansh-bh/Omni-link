@@ -49,7 +49,7 @@ export default function RootLayout({ children }) {
     "@type": "Organization",
     "name": "OmniLink Infrastructure",
     "url": "https://omnilinkinfra.com",
-    "logo": "https://omnilinkinfra.com/logo.png",
+    "logo": "https://omnilinkinfra.com/logo.svg",
     "description": "India's trusted IT infrastructure partner specializing in CCTV, Solar, Networking, and Smart Automation.",
     "contactPoint": {
       "@type": "ContactPoint",
