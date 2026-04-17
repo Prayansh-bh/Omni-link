@@ -121,20 +121,67 @@ body {
   background: var(--navy); border-radius: 20px;
   padding: 28px; color: white; height: 260px;
   overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.05);
 }
+
+.card-spot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  opacity: 0.4;
+  filter: blur(20px);
+  pointer-events: none;
+  animation: revolveSpot 8s linear infinite;
+  z-index: 0;
+}
+
+@keyframes revolveSpot {
+  0% { transform: translate(-50%, -50%) translate(0, 0); }
+  25% { transform: translate(-50%, -50%) translate(100%, 0); }
+  25.1% { transform: translate(-50%, -50%) translate(100%, 0); }
+  50% { transform: translate(-50%, -50%) translate(100%, 100%); }
+  75% { transform: translate(-50%, -50%) translate(0, 100%); }
+  100% { transform: translate(-50%, -50%) translate(0, 0); }
+}
+
+/* Using a more modern approach with offset-path for better border following */
+.card-spot-modern {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  opacity: 0.4;
+  filter: blur(25px);
+  pointer-events: none;
+  /* Define path revolving around the box */
+  offset-path: rect(0% 100% 100% 0% round 20px);
+  animation: moveSpot 10s linear infinite;
+  z-index: 0;
+}
+
+@keyframes moveSpot {
+  from { offset-distance: 0%; }
+  to { offset-distance: 100%; }
+}
+
 .hero-card-main::before {
   content: '';
   position: absolute; top: -60px; right: -40px;
   width: 220px; height: 220px;
   background: radial-gradient(circle, rgba(21,96,189,0.35) 0%, transparent 70%);
   border-radius: 50%;
+  z-index: 0;
 }
-.hero-card-title { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; opacity: 0.5; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
+.hero-card-title { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; opacity: 0.5; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; position: relative; z-index: 1; }
 .service-chips { display: flex; flex-wrap: wrap; gap: 8px; position: relative; z-index: 1; }
 .service-chip {
   background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
   color: white; border-radius: 20px; padding: 5px 12px; font-size: 12px; font-weight: 400;
   cursor: pointer; transition: all 0.2s;
+  position: relative; z-index: 2;
 }
 .service-chip:hover, .service-chip.active { background: var(--accent); border-color: var(--accent); }
 .hero-card-bottom {
@@ -143,6 +190,7 @@ body {
   padding: 16px 20px;
   display: flex; align-items: center; justify-content: space-between;
   box-shadow: 0 8px 32px rgba(10,15,30,0.16);
+  z-index: 2;
 }
 .hcb-left { display: flex; align-items: center; gap: 10px; }
 .hcb-icon {

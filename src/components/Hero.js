@@ -41,6 +41,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <div className="hero-card-main">
+            <div className="card-spot-modern" />
             <div className="hero-card-title">Our Service Portfolio</div>
             <div className="service-chips">
               {chipLabels.map((label, i) => (
