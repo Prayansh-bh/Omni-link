@@ -36,7 +36,7 @@ export default function Navbar() {
       </div>
 
       <div style={{position: 'absolute', bottom: '-12px', right: '40px', fontSize: '9px', opacity: 0.3, color: 'var(--text-secondary)'}}>
-        Build v2.1
+        Build v2.2
       </div>
 
       <Link href="/contact" className="nav-cta" style={{pointerEvents: 'auto'}}>
