@@ -1,10 +1,16 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY 
+  ? new Resend(process.env.RESEND_API_KEY) 
+  : null;
 
 export async function POST(req) {
   try {
     const { name, email, phone, service, message } = await req.json();
+    
+    if (!resend) {
+      return Response.json({ error: 'Resend API key is not configured' }, { status: 500 });
+    }
 
     const { data, error } = await resend.emails.send({
       from: 'OmniLink <onboarding@resend.dev>', // You should verify your domain in Resend
