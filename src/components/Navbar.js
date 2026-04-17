@@ -22,19 +22,24 @@ export default function Navbar() {
         <div className="nav-brand">OmniLink <span>Infrastructure</span></div>
       </Link>
       
-      <div className="nav-links">
+      <div className="nav-links" style={{position: 'relative', zIndex: 10, pointerEvents: 'auto'}}>
         {links.map((link) => (
           <Link 
             key={link.name} 
             href={link.href}
             className={`nav-link ${pathname === link.href ? 'active' : ''}`}
+            style={{pointerEvents: 'auto'}}
           >
             {link.name}
           </Link>
         ))}
       </div>
 
-      <Link href="/contact" className="nav-cta">
+      <div style={{position: 'absolute', bottom: '-12px', right: '40px', fontSize: '9px', opacity: 0.3, color: 'var(--text-secondary)'}}>
+        Build v2.1
+      </div>
+
+      <Link href="/contact" className="nav-cta" style={{pointerEvents: 'auto'}}>
         Get a Free Quote
       </Link>
     </nav>
